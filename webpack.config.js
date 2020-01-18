@@ -13,17 +13,20 @@ module.exports = {
     module: {
         rules: [
             {
+                // JS Rules
                 test: /\.js$/,
                 use: 'babel-loader',
                 exclude: /node_modules/
             },
             {
+                // SASS / SCSS / CSS Rules
                 test: /\.(sa|sc|c)ss$/i,
                 use: [
                     // Creates `style` nodes from JS strings
                     {
                         loader: 'style-loader'
                     },
+                    // Extract SASS/SCSS to css CSS files
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
@@ -31,7 +34,7 @@ module.exports = {
                             reloadAll: true,
                         },
                     },
-                    // CSS Configuration
+                    // CSS Rules
                     {
                         loader: 'css-loader',
                         options: {
@@ -60,10 +63,12 @@ module.exports = {
                 ],
             },
             {
+                // SVG Images Rules
                 test: /\.svg$/,
                 use: 'file-loader'
             },
             {
+                // PNG Images Rules
                 test: /\.png$/,
                 use: [
                     {
